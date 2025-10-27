@@ -54,6 +54,7 @@ venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 
 # Crear base de datos (una vez configurados los modelos)
+mkdir instance
 flask db init
 flask db migrate -m "init"
 flask db upgrade
@@ -86,7 +87,6 @@ SQLALCHEMY_DATABASE_URI=sqlite:///instance/app.db
 > Nota: Los endpoints retornan respuestas `501 Not Implemented` hasta que se complete la logica.
 
 ## TODO principal por archivo
-- `src/api/health.py`: reemplazar el check basico por validaciones reales (BD, cache, servicios externos).
 - `src/api/movies.py`: implementar `MovieService` y conectar los endpoints con los modelos.
 - `src/api/series.py`: manejar relacion serie-temporadas y exponer datos normalizados.
 - `src/api/progress.py`: validar el header `X-User-Id`, gestionar la watchlist y calcular porcentajes.
